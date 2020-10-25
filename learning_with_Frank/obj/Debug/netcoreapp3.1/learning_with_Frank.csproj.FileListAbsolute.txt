@@ -1,0 +1,12 @@
+/Users/ajokesulaimon/Projects/learning_with_Frank/learning_with_Frank/bin/Debug/netcoreapp3.1/learning_with_Frank.deps.json
+/Users/ajokesulaimon/Projects/learning_with_Frank/learning_with_Frank/bin/Debug/netcoreapp3.1/learning_with_Frank.runtimeconfig.json
+/Users/ajokesulaimon/Projects/learning_with_Frank/learning_with_Frank/bin/Debug/netcoreapp3.1/learning_with_Frank.runtimeconfig.dev.json
+/Users/ajokesulaimon/Projects/learning_with_Frank/learning_with_Frank/bin/Debug/netcoreapp3.1/learning_with_Frank.dll
+/Users/ajokesulaimon/Projects/learning_with_Frank/learning_with_Frank/bin/Debug/netcoreapp3.1/learning_with_Frank.pdb
+/Users/ajokesulaimon/Projects/learning_with_Frank/learning_with_Frank/obj/Debug/netcoreapp3.1/learning_with_Frank.csprojAssemblyReference.cache
+/Users/ajokesulaimon/Projects/learning_with_Frank/learning_with_Frank/obj/Debug/netcoreapp3.1/learning_with_Frank.AssemblyInfoInputs.cache
+/Users/ajokesulaimon/Projects/learning_with_Frank/learning_with_Frank/obj/Debug/netcoreapp3.1/learning_with_Frank.AssemblyInfo.cs
+/Users/ajokesulaimon/Projects/learning_with_Frank/learning_with_Frank/obj/Debug/netcoreapp3.1/learning_with_Frank.csproj.CoreCompileInputs.cache
+/Users/ajokesulaimon/Projects/learning_with_Frank/learning_with_Frank/obj/Debug/netcoreapp3.1/learning_with_Frank.dll
+/Users/ajokesulaimon/Projects/learning_with_Frank/learning_with_Frank/obj/Debug/netcoreapp3.1/learning_with_Frank.pdb
+/Users/ajokesulaimon/Projects/learning_with_Frank/learning_with_Frank/obj/Debug/netcoreapp3.1/learning_with_Frank.genruntimeconfig.cache
