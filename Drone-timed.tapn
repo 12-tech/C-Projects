@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.informatik.hu-berlin.de/top/pnml/ptNetb">
+  <shared-transition name="send_mapping" player="0" urgent="false"/>
+  <net active="true" id="Drone" type="P/T net">
+    <place displayName="true" id="ready_state" initialMarking="1" invariant="&lt; inf" name="ready_state" nameOffsetX="0" nameOffsetY="0" positionX="390" positionY="150"/>
+    <place displayName="true" id="save_mapping" initialMarking="0" invariant="&lt; inf" name="save_mapping" nameOffsetX="0" nameOffsetY="0" positionX="330" positionY="600"/>
+    <place displayName="true" id="Get_location" initialMarking="0" invariant="&lt; inf" name="Get_location" nameOffsetX="90" nameOffsetY="41" positionX="615" positionY="510"/>
+    <place displayName="true" id="path_info" initialMarking="0" invariant="&lt; inf" name="path_info" nameOffsetX="113" nameOffsetY="11" positionX="675" positionY="255"/>
+    <transition angle="0" displayName="true" id="Create_mapping" infiniteServer="false" name="Create_mapping" nameOffsetX="28" nameOffsetY="-5" player="0" positionX="510" positionY="585" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Monitor_plant" infiniteServer="false" name="Monitor_plant" nameOffsetX="100" nameOffsetY="20" player="0" positionX="675" positionY="375" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="send_mapping" infiniteServer="false" name="send_mapping" nameOffsetX="0" nameOffsetY="0" player="0" positionX="225" positionY="405" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Activate_drone" infiniteServer="false" name="Activate_drone" nameOffsetX="49" nameOffsetY="-7" player="0" positionX="570" positionY="180" priority="0" urgent="false"/>
+    <arc id="A2" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="ready_state" target="Activate_drone" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="419" yCoord="167"/>
+      <arcpath arcPointType="false" id="1" xCoord="580" yCoord="190"/>
+    </arc>
+    <arc id="A4" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Activate_drone" target="path_info" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="589" yCoord="195"/>
+      <arcpath arcPointType="false" id="1" xCoord="677" yCoord="261"/>
+    </arc>
+    <arc id="A5" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="path_info" target="Monitor_plant" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="690" yCoord="285"/>
+      <arcpath arcPointType="false" id="1" xCoord="690" yCoord="375"/>
+    </arc>
+    <arc id="A6" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Monitor_plant" target="Get_location" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="690" yCoord="405"/>
+      <arcpath arcPointType="false" id="1" xCoord="636" yCoord="511"/>
+    </arc>
+    <arc id="A7" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Get_location" target="Create_mapping" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="617" yCoord="533"/>
+      <arcpath arcPointType="false" id="1" xCoord="530" yCoord="595"/>
+    </arc>
+    <arc id="A8" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Create_mapping" target="save_mapping" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="519" yCoord="600"/>
+      <arcpath arcPointType="false" id="1" xCoord="359" yCoord="613"/>
+    </arc>
+    <arc id="A9" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="save_mapping" target="send_mapping" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="337" yCoord="602"/>
+      <arcpath arcPointType="false" id="1" xCoord="240" yCoord="435"/>
+    </arc>
+    <arc id="A10" inscription="1" nameOffsetX="0" nameOffsetY="0" source="send_mapping" target="ready_state" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="244" yCoord="420"/>
+      <arcpath arcPointType="false" id="1" xCoord="396" yCoord="177"/>
+    </arc>
+    <arc id="A11" inscription="1" nameOffsetX="0" nameOffsetY="0" source="send_mapping" target="path_info" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="244" yCoord="420"/>
+      <arcpath arcPointType="false" id="1" xCoord="675" yCoord="274"/>
+    </arc>
+  </net>
+  <net active="true" id="Autonomous_vehicle" type="P/T net">
+    <place displayName="true" id="check_end" initialMarking="0" invariant="&lt; inf" name="check_end" nameOffsetX="0" nameOffsetY="0" positionX="240" positionY="390"/>
+    <place displayName="true" id="ready_state" initialMarking="1" invariant="&lt; inf" name="ready_state" nameOffsetX="0" nameOffsetY="0" positionX="420" positionY="180"/>
+    <place displayName="true" id="collect_weed" initialMarking="0" invariant="&lt; inf" name="collect_weed" nameOffsetX="0" nameOffsetY="0" positionX="375" positionY="450"/>
+    <place displayName="true" id="confirm_plant" initialMarking="0" invariant="&lt; inf" name="confirm_plant" nameOffsetX="90" nameOffsetY="41" positionX="645" positionY="540"/>
+    <place displayName="true" id="path_info" initialMarking="0" invariant="&lt; inf" name="path_info" nameOffsetX="89" nameOffsetY="13" positionX="705" positionY="285"/>
+    <transition angle="0" displayName="true" id="weed" infiniteServer="false" name="weed" nameOffsetX="28" nameOffsetY="-5" player="0" positionX="525" positionY="450" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="drive_to_position" infiniteServer="false" name="drive_to_position" nameOffsetX="114" nameOffsetY="22" player="0" positionX="705" positionY="405" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="check_other_location" infiniteServer="false" name="check_other_location" nameOffsetX="0" nameOffsetY="0" player="0" positionX="240" positionY="555" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="send_mapping" infiniteServer="false" name="send_mapping" nameOffsetX="49" nameOffsetY="-7" player="0" positionX="600" positionY="210" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="back_to_home" infiniteServer="false" name="back_to_home" nameOffsetX="0" nameOffsetY="0" player="0" positionX="315" positionY="255" priority="0" urgent="false"/>
+    <arc id="A13" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="check_end" target="back_to_home" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="262" yCoord="392"/>
+      <arcpath arcPointType="false" id="1" xCoord="330" yCoord="285"/>
+    </arc>
+    <arc id="A14" inscription="1" nameOffsetX="0" nameOffsetY="0" source="back_to_home" target="ready_state" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="334" yCoord="270"/>
+      <arcpath arcPointType="false" id="1" xCoord="422" yCoord="203"/>
+    </arc>
+    <arc id="A12" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="ready_state" target="send_mapping" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="449" yCoord="197"/>
+      <arcpath arcPointType="false" id="1" xCoord="609" yCoord="230"/>
+    </arc>
+    <arc id="A11" inscription="1" nameOffsetX="0" nameOffsetY="0" source="send_mapping" target="path_info" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="619" yCoord="225"/>
+      <arcpath arcPointType="false" id="1" xCoord="707" yCoord="289"/>
+      <arcpath arcPointType="false" id="2" xCoord="708" yCoord="290"/>
+    </arc>
+    <arc id="A4" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="path_info" target="drive_to_position" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="720" yCoord="315"/>
+      <arcpath arcPointType="false" id="1" xCoord="720" yCoord="405"/>
+    </arc>
+    <arc id="A5" inscription="1" nameOffsetX="0" nameOffsetY="0" source="drive_to_position" target="confirm_plant" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="720" yCoord="435"/>
+      <arcpath arcPointType="false" id="1" xCoord="666" yCoord="541"/>
+    </arc>
+    <arc id="A6" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="confirm_plant" target="weed" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="647" yCoord="546"/>
+      <arcpath arcPointType="false" id="1" xCoord="544" yCoord="470"/>
+    </arc>
+    <arc id="A7" inscription="1" nameOffsetX="0" nameOffsetY="0" source="weed" target="collect_weed" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="534" yCoord="465"/>
+      <arcpath arcPointType="false" id="1" xCoord="405" yCoord="465"/>
+    </arc>
+    <arc id="A8" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="collect_weed" target="check_other_location" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="378" yCoord="474"/>
+      <arcpath arcPointType="false" id="1" xCoord="260" yCoord="565"/>
+    </arc>
+    <arc id="A9" inscription="1" nameOffsetX="0" nameOffsetY="0" source="check_other_location" target="check_end" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="255" yCoord="555"/>
+      <arcpath arcPointType="false" id="1" xCoord="255" yCoord="420"/>
+    </arc>
+  </net>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="false" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="Absence of deadlock" overApproximation="false" pTrie="true" query="AG !(deadlock)" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="true" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="Reachability" overApproximation="true" pTrie="true" query="EF true" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
+  <k-bound bound="3"/>
+  <feature isGame="false" isTimed="true"/>
+</pnml>
